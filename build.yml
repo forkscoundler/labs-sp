@@ -1,0 +1,24 @@
+name: Збірка RPM та DEB
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Вилучення з репозиторію
+        uses: actions/checkout@v2
+
+      - name: Налаштування Docker
+        uses: actions/setup-docker@v2
+
+      - name: Збірка RPM та DEB
+        run: |
+          docker build -t my-builder .
+          docker run my-builder
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

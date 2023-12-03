@@ -1,0 +1,11 @@
+Source: my-package
+Section: utils
+Priority: optional
+Maintainer: Ваше Ім'я <ваша.пошта@example.com>
+Build-Depends: debhelper (>= 12)
+
+Package: my-package
+Architecture: all
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Підрахунок файлів у /etc
+ Цей пакет містить скрипт для підрахунку файлів у /etc.
